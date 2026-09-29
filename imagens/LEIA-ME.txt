@@ -1,0 +1,1 @@
+Coloque aqui as suas fotos (ex: topo.jpg, cctv.jpg). Depois use <img src="imagens/topo.jpg" alt=""> dentro dos quadros com class="img".

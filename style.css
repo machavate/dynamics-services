@@ -1,0 +1,1487 @@
+:root {
+    --red: #d6001c;
+    --red2: #a80016;
+    --grey: #f3f3f3;
+    --line: #dcdcdc;
+    --mut: #595959;
+
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html {
+    scroll-padding-top: 90px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font: 17px/1.6 Barlow, system-ui, Arial, sans-serif;
+    background: #fff;
+    color: #161616;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
+    line-height: 1.05;
+    margin: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+:focus-visible {
+    outline: 3px solid var(--red);
+    outline-offset: 3px;
+}
+
+.wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 24px;
+    font: 600 16px Barlow, sans-serif;
+    border: 2px solid var(--red);
+    background: var(--red);
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn:hover {
+    background: var(--red2);
+    border-color: var(--red2);
+}
+
+.btn.ol {
+    background: transparent;
+    color: inherit;
+    border-color: currentColor;
+}
+
+.btn.ol:hover {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+.btn.bk {
+    background: #000;
+    border-color: #000;
+}
+
+.btn.bk:hover {
+    background: var(--red);
+    border-color: var(--red);
+}
+
+
+/* =========================================
+   TOPO
+   ========================================= */
+
+.top {
+    background: #000;
+    color: #ddd;
+    font-size: 14px;
+}
+
+.top .wrap {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+
+/* =========================================
+   HEADER - DYNAMIC SERVICES
+   ========================================= */
+
+.site-header {
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+    position: relative;
+    z-index: 1000;
+}
+
+.site-header .wrap {
+    max-width: 1400px;
+    min-height: 90px;
+    margin: 0 auto;
+    padding: 12px 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* =========================================
+   LOGO
+   ========================================= */
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    text-decoration: none;
+    line-height: 0;
+}
+
+.logo img {
+    display: block;
+    width: 190px;
+    height: auto;
+    max-height: 70px;
+    object-fit: contain;
+}
+
+
+/* =========================================
+   NAVEGAÇÃO
+   ========================================= */
+
+.site-header nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 24px;
+}
+
+.site-header nav a {
+    color: #171717;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.25s ease;
+}
+
+.site-header nav a:hover,
+.site-header nav a.on {
+    color: #e30613;
+}
+
+
+/* Botão Pedir orçamento */
+
+.site-header nav a.btn {
+    background: #e30613;
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 5px;
+    transition: background 0.25s ease;
+}
+
+.site-header nav a.btn:hover {
+    background: #b8040e;
+    color: #ffffff;
+}
+
+
+/* =========================================
+   BOTÃO MENU MOBILE
+   ========================================= */
+
+.burger {
+    display: none;
+    border: 1px solid #dddddd;
+    background: #ffffff;
+    color: #171717;
+    padding: 9px 14px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+/* =========================================
+   RESPONSIVIDADE DO HEADER
+   ========================================= */
+
+@media (max-width: 1100px) {
+
+    .site-header .wrap {
+        padding: 12px 22px;
+        gap: 20px;
+    }
+
+    .logo img {
+        width: 165px;
+    }
+
+    .site-header nav {
+        gap: 16px;
+    }
+
+    .site-header nav a {
+        font-size: 13px;
+    }
+
+    .site-header nav a.btn {
+        padding: 10px 14px;
+    }
+}
+
+
+@media (max-width: 850px) {
+
+    .site-header .wrap {
+        min-height: 75px;
+        padding: 10px 20px;
+    }
+
+    .logo img {
+        width: 160px;
+        max-height: 60px;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .site-header nav {
+        display: none;
+
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 0;
+
+        background: #ffffff;
+        border-top: 1px solid #eeeeee;
+
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+        padding: 10px 20px;
+    }
+
+    .site-header nav.open {
+        display: flex;
+    }
+
+    .site-header nav a {
+        padding: 13px 5px;
+        font-size: 14px;
+    }
+
+    .site-header nav a.btn {
+        margin-top: 8px;
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .site-header .wrap {
+        padding: 10px 16px;
+    }
+
+    .logo img {
+        width: 145px;
+        max-height: 55px;
+    }
+}
+
+
+/* =========================================
+   IMAGENS
+   ========================================= */
+
+.img {
+    position: relative;
+
+    width: 100%;
+
+    background: repeating-linear-gradient(
+        135deg,
+        #efefef 0 12px,
+        #e6e6e6 12px 24px
+    );
+
+    border: 2px dashed #b5b5b5;
+    
+
+    display: grid;
+    place-items: center;
+
+    color: #7a7a7a;
+    font-size: 14px;
+    text-align: center;
+
+    overflow: hidden;
+}
+
+
+/*
+   Imagem <img>
+
+   NÃO usamos height: 100% no .img.
+   A altura continua a ser definida pelos
+   elementos que usam aspect-ratio.
+*/
+
+.img img {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    /*
+       contain = imagem inteira visível
+       sem cortar e sem deformar
+    */
+    object-fit: contain;
+
+    object-position: center;
+
+    display: block;
+
+    z-index: 1;
+}
+
+
+/*
+   Detalhe vermelho no canto
+*/
+
+.img::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 26px;
+    height: 26px;
+
+    background: var(--red);
+
+    z-index: 2;
+}
+
+
+/*
+   Imagem de fundo 7.jpg
+*/
+
+.img.dk {
+    background-image: url("../dynamic-services/imagens/7.jpg");
+
+    /*
+       Mostra a imagem inteira
+       sem cortar
+    */
+    background-size: contain;
+
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-color: #555;
+    color: #aaa;
+}
+
+
+/* =========================================
+   HERO
+   ========================================= */
+
+.hero {
+    background: #000;
+    color: #fff;
+    overflow: hidden;
+}
+
+.hero .wrap {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 44px;
+    align-items: center;
+
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+
+.hero h1 {
+    font-size: clamp(44px, 7vw, 88px);
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.hero h1 em {
+    font-style: normal;
+    display: block;
+    color: var(--red);
+}
+
+.hero p {
+    color: #ddd;
+    font-size: 19px;
+    max-width: 500px;
+    margin: 20px 0 28px;
+}
+
+.hero .cta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.hero .btn.ol:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+.hero .ph {
+    position: relative;
+}
+
+.hero .ph::after {
+    content: "";
+
+    position: absolute;
+
+    right: -14px;
+    bottom: -14px;
+
+    width: 60%;
+    height: 60%;
+
+    background: var(--red);
+
+    z-index: 0;
+}
+
+.hero .ph .img {
+    position: relative;
+
+    z-index: 1;
+
+    aspect-ratio: 4 / 3;
+}
+
+
+/* =========================================
+   STRIP
+   ========================================= */
+
+.strip {
+    border-bottom: 1px solid var(--line);
+}
+
+.strip .wrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.strip .p {
+    padding: 26px 24px 26px 0;
+    border-right: 1px solid var(--line);
+}
+
+.strip .p + .p {
+    padding-left: 24px;
+}
+
+.strip .p:last-child {
+    border: 0;
+}
+
+.strip h3 {
+    font-size: 25px;
+    text-transform: uppercase;
+
+    border-left: 5px solid var(--red);
+
+    padding-left: 10px;
+    margin-bottom: 6px;
+}
+
+.strip p {
+    margin: 0;
+    color: var(--mut);
+    font-size: 16px;
+}
+
+
+/* =========================================
+   SEÇÕES
+   ========================================= */
+
+section {
+    padding: 72px 0;
+}
+
+.alt {
+    background: var(--grey);
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 34px;
+}
+
+.h2 {
+    font-size: clamp(34px, 5vw, 56px);
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.lead {
+    color: var(--mut);
+    max-width: 560px;
+    margin: 10px 0 0;
+}
+
+
+/* =========================================
+   PAGE HEADER
+   ========================================= */
+
+.pg {
+    padding: 52px 0 20px;
+
+    background: #000;
+    color: #fff;
+
+    border-bottom: 6px solid var(--red);
+}
+
+.pg h1 {
+    font-size: clamp(38px, 6vw, 68px);
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.pg p {
+    color: #ccc;
+    max-width: 600px;
+    margin: 10px 0 0;
+}
+
+.crumb {
+    font-size: 14px;
+    color: #bbb;
+    margin-bottom: 10px;
+}
+
+.crumb a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   SERVIÇOS
+   ========================================= */
+
+.sv {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.sv a {
+    display: block;
+    background: #fff;
+    border: 2px solid #000;
+    border-radius: 5px;
+}
+
+.sv a:hover {
+    border-color: var(--red);
+}
+
+.sv .img {
+    aspect-ratio: 16 / 10;
+    border: 0;
+    border-bottom: 2px solid #000;
+}
+
+.sv .b {
+    padding: 18px 20px 22px;
+}
+
+.sv h3 {
+    font-size: 27px;
+    margin-bottom: 6px;
+}
+
+.sv p {
+    margin: 0 0 10px;
+    color: var(--mut);
+    font-size: 16px;
+}
+
+.more {
+    font-weight: 600;
+    color: var(--red);
+}
+
+
+/* =========================================
+   PRODUTOS
+   ========================================= */
+
+.pr {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid var(--line);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.card .img {
+    aspect-ratio: 1 / 1;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.card .b {
+    padding: 14px 16px 18px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+
+    flex: 1;
+}
+
+.card small {
+    color: var(--red);
+    font-weight: 600;
+}
+
+.card h3 {
+    font-size: 23px;
+}
+
+.card .pc {
+    color: var(--mut);
+    font-size: 15px;
+}
+
+.card .btn {
+    margin-top: auto;
+    padding: 10px 12px;
+    font-size: 15px;
+}
+
+
+/* =========================================
+   CHIPS
+   ========================================= */
+
+.chips {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 26px;
+}
+
+.chips button {
+    border: 2px solid #000;
+    background: #fff;
+
+    padding: 7px 16px;
+
+    font: 600 15px Barlow;
+
+    cursor: pointer;
+}
+
+.chips button.on,
+.chips button:hover {
+    background: var(--red);
+    border-color: var(--red);
+    color: #fff;
+}
+
+
+/* =========================================
+   DETALHE
+   ========================================= */
+
+.det {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+
+    gap: 44px;
+}
+
+.thumbs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 10px;
+
+    margin-top: 10px;
+}
+
+.det h2 {
+    font-size: 38px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.det ul {
+    padding-left: 0;
+    list-style: none;
+    margin: 16px 0;
+}
+
+.det li {
+    padding: 8px 0 8px 18px;
+
+    border-bottom: 1px solid var(--line);
+
+    position: relative;
+}
+
+.det li::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 17px;
+
+    width: 8px;
+    height: 8px;
+
+    background: var(--red);
+}
+
+.box {
+    background: var(--grey);
+
+    border-left: 6px solid var(--red);
+
+    padding: 18px 20px;
+
+    margin: 18px 0;
+}
+
+/* =========================================
+   GALERIA - TRABALHOS RECENTES
+   ========================================= */
+
+.gal {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 220px 220px;
+    gap: 12px;
+}
+
+/* Blocos da galeria */
+.gal .img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #f2f2f2;
+    border: 0;
+}
+
+/* Imagens */
+.gal .img img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.35s ease;
+}
+
+/* Imagem maior */
+.gal .img.w {
+    grid-row: span 2;
+}
+
+/* Efeito hover */
+.gal .img:hover img {
+    transform: scale(1.05);
+}
+
+/* Detalhe vermelho */
+.gal .img::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    background: var(--red);
+    z-index: 2;
+}
+
+/* =========================================
+   SOBRE / CONTACTO
+   ========================================= */
+
+.two {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 48px;
+
+    align-items: center;
+}
+
+.stats {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    border: 2px solid #000;
+
+    margin-top: 30px;
+}
+
+.stats div {
+    padding: 20px;
+
+    border-right: 2px solid #000;
+}
+
+.stats div:last-child {
+    border: 0;
+}
+
+.stats b {
+    display: block;
+
+    font: 800 40px "Barlow Condensed";
+
+    color: var(--red);
+
+    line-height: 1;
+}
+
+
+/* =========================================
+   STEPS
+   ========================================= */
+
+.steps {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    border-top: 4px solid #000;
+}
+
+.steps div {
+    padding: 24px 20px 0 0;
+}
+
+.steps b {
+    font: 700 22px "Barlow Condensed";
+    color: var(--red);
+}
+
+.steps h3 {
+    font-size: 26px;
+
+    text-transform: uppercase;
+
+    margin: 2px 0 6px;
+}
+
+.steps p {
+    margin: 0;
+
+    color: var(--mut);
+
+    font-size: 16px;
+}
+
+
+/* =========================================
+   BAND
+   ========================================= */
+
+.band {
+    background: var(--red);
+
+    color: #fff;
+
+    padding: 44px 0;
+}
+
+.band .wrap {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+}
+
+.band h2 {
+    font-size: 38px;
+    text-transform: uppercase;
+}
+
+.band .btn {
+    background: #000;
+    border-color: #000;
+}
+
+.band .btn:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+
+/* =========================================
+   CONTACTO
+   ========================================= */
+
+.info div {
+    border-left: 5px solid var(--red);
+
+    padding-left: 14px;
+
+    margin-bottom: 18px;
+}
+
+.info b {
+    display: block;
+
+    font: 700 21px "Barlow Condensed";
+
+    text-transform: uppercase;
+}
+
+form {
+    background: #fff;
+
+    padding: 30px;
+
+    border-top: 6px solid var(--red);
+
+    display: grid;
+
+    gap: 14px;
+}
+
+.row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 14px;
+}
+
+label {
+    font-weight: 600;
+
+    font-size: 15px;
+
+    display: grid;
+
+    gap: 5px;
+}
+
+input,
+select,
+textarea {
+    font: inherit;
+
+    padding: 11px 13px;
+
+    border: 2px solid var(--line);
+
+    width: 100%;
+
+    background: #fff;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--red);
+    outline: 0;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+    background: #000;
+
+    color: #bbb;
+
+    padding: 44px 0 26px;
+
+    font-size: 15px;
+}
+
+footer .g {
+    display: grid;
+
+    grid-template-columns: 1.4fr 1fr 1fr;
+
+    gap: 30px;
+}
+
+footer h3 {
+    color: #fff;
+
+    font-size: 20px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 10px;
+}
+
+footer a {
+    display: block;
+
+    padding: 2px 0;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+footer .logo {
+    color: #fff;
+}
+
+footer .c {
+    border-top: 1px solid #333;
+
+    margin-top: 26px;
+
+    padding-top: 16px;
+}
+
+
+/* =========================================
+   BOTÕES FLUTUANTES
+   ========================================= */
+
+.fab {
+    position: fixed;
+
+    right: 18px;
+
+    z-index: 80;
+
+    border: 0;
+
+    cursor: pointer;
+
+    display: grid;
+
+    place-items: center;
+
+    color: #fff;
+
+    border-radius: 50%;
+
+    width: 58px;
+    height: 58px;
+
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+.wa {
+    bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+
+    background: #25d366;
+}
+
+.wa svg {
+    width: 30px;
+    height: 30px;
+
+    fill: #fff;
+}
+
+.wa::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 50%;
+
+    border: 3px solid #25d366;
+
+    animation: p 2.2s infinite;
+}
+
+@keyframes p {
+
+    to {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+
+}
+
+.bot {
+    bottom: calc(88px + env(safe-area-inset-bottom, 0px));
+
+    background: var(--red);
+
+    font: 700 13px Barlow;
+}
+
+.chat {
+    position: fixed;
+
+    right: 18px;
+
+    bottom: calc(156px + env(safe-area-inset-bottom, 0px));
+
+    width: min(350px, calc(100vw - 36px));
+
+    height: min(470px, calc(100vh - 190px));
+
+    background: #fff;
+
+    z-index: 90;
+
+    display: none;
+
+    flex-direction: column;
+
+    border: 2px solid #000;
+
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.85);
+}
+
+.chat.open {
+    display: flex;
+}
+
+.ch-h {
+    background: #000;
+
+    color: #fff;
+
+    padding: 12px 14px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    border-bottom: 4px solid var(--red);
+}
+
+.ch-h b {
+    font: 700 20px "Barlow Condensed";
+}
+
+.ch-h button {
+    background: none;
+
+    border: 0;
+
+    color: #fff;
+
+    font-size: 24px;
+
+    cursor: pointer;
+}
+
+.msgs {
+    flex: 1;
+
+    overflow: auto;
+
+    padding: 12px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+
+    background: var(--grey);
+}
+
+.m {
+    max-width: 86%;
+
+    padding: 9px 12px;
+
+    font-size: 15px;
+
+    line-height: 1.4;
+}
+
+.m.b {
+    background: #fff;
+
+    border-left: 4px solid var(--red);
+
+    align-self: flex-start;
+}
+
+.m.u {
+    background: #000;
+
+    color: #fff;
+
+    align-self: flex-end;
+}
+
+.qr {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    padding: 8px 10px;
+
+    border-top: 1px solid var(--line);
+}
+
+.qr button {
+    border: 2px solid #000;
+
+    background: #fff;
+
+    padding: 4px 10px;
+
+    font: 600 13px Barlow;
+
+    cursor: pointer;
+}
+
+.qr button:hover {
+    background: var(--red);
+
+    border-color: var(--red);
+
+    color: #fff;
+}
+
+.cf {
+    display: flex;
+
+    border-top: 2px solid #000;
+}
+
+.cf input {
+    border: 0;
+
+    flex: 1;
+}
+
+.cf button {
+    border: 0;
+
+    background: var(--red);
+
+    color: #fff;
+
+    padding: 0 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+   ========================================= */
+
+@media (max-width: 960px) {
+
+    .hero .wrap,
+    .two,
+    .det {
+        grid-template-columns: 1fr;
+    }
+
+    .sv {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .pr {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .gal {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 150px;
+    }
+
+    .steps {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .strip .wrap {
+        grid-template-columns: 1fr;
+    }
+
+    .strip .p,
+    .strip .p + .p {
+        padding: 18px 0;
+
+        border: 0;
+
+        border-bottom: 1px solid var(--line);
+    }
+
+    section {
+        padding: 52px 0;
+    }
+
+    .hero .wrap {
+        padding-top: 40px;
+        padding-bottom: 50px;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    nav {
+        display: none;
+
+        position: absolute;
+
+        top: 68px;
+
+        left: 0;
+        right: 0;
+
+        background: #fff;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        padding: 8px 20px 18px;
+
+        border-bottom: 3px solid var(--red);
+    }
+
+    nav.open {
+        display: flex;
+    }
+
+    nav a {
+        padding: 12px 0;
+
+        border-bottom: 1px solid var(--line);
+    }
+
+    nav .btn {
+        margin-top: 12px;
+
+        border: 2px solid var(--red);
+    }
+
+    .top .wrap span:last-child {
+        display: none;
+    }
+
+    footer .g {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 560px) {
+
+    .sv,
+    .row,
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .pr {
+        gap: 12px;
+    }
+
+    .card h3 {
+        font-size: 20px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stats div:nth-child(2) {
+        border-right: 0;
+    }
+
+    .stats div:nth-child(-n + 2) {
+        border-bottom: 2px solid #000;
+    }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    .wa::after {
+        animation: none;
+    }
+}
